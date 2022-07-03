@@ -1,6 +1,7 @@
 let pages = [window.location.pathname];
 let switchDirectionWindowWidth = 900;
 let animationLength = 200;
+let isZoom = false;
 
 function stackNote(href, level) {
   level = Number(level) || pages.length;
@@ -63,6 +64,7 @@ function fetchNote(href, level) {
         }.bind(null, element, level),
         10
       );
+      zoomImage();
     });
 }
 
@@ -129,3 +131,29 @@ window.onload = function () {
     }
   }
 };
+
+// Image zoom
+function zoomImage() {
+    $("img").each(function(idx, ele) {
+        $(this).click(function() {
+
+            if(!isZoom) {
+                $("html").append(
+                    `
+                    <div class='img-wrapper animated pulse faster'>
+                        <img class='img-zoom' src=${ele.src} />
+                    </div>
+                    `
+                );
+
+                $(".img-wrapper").click(function() {
+                    $(".img-wrapper").remove();
+                    isZoom = false;
+                });
+
+                isZoom = true;
+            }
+        });
+    });
+}
+
