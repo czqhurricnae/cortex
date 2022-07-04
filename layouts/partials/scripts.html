@@ -1,8 +1,11 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
-<script src='https://unpkg.com/@popperjs/core@2'></script>
-<script src='https://unpkg.com/vis-network@8.2.0/dist/vis-network.min.js'></script>
-<script src='https://unpkg.com/@popperjs/core@2'></script>
-<script src='https://unpkg.com/tippy.js@6'></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/vis-network@8.2.0/dist/vis-network.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+{{ $urijs := resources.Get "js/URI.js" }}
+<script src="{{$urijs.Permalink}}" type="text/javascript"></script>
+{{ $pagejs := resources.Get "js/page.js" }}
+<script src="{{$pagejs.Permalink}}" type="text/javascript"></script>
 <script>hljs.highlightAll();</script>
-
